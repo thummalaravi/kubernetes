@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: nginx-rs
+specs:
+  replicas: 3
+  templete:
+    metadata: 
+      name: nginx-pod
+      labels: 
+        app: nginx-pod
+        tier: frontend
+    spec: 
+      containers:
+      - name: nginx-container
+	image: ravitejakumar/raviwebsite
+	ports: 
+	- containerPort: 80
+  selector:
+    matchLabels:
+       app: nginx-app
+    matchExpressions:
+       - {key: teir, operator: In, values: [frontend]}
+  
