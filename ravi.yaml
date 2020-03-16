@@ -7,7 +7,7 @@ metadata:
 spec:
   containers:
   - name: nginx
-    image: docker.io/ravitejakumar/raviwebsite 
+    image: docker.io
     command: ['sh', '-c:',  sleep 3600']
     ports:
     - containerPort: 80
